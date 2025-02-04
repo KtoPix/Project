@@ -7,8 +7,8 @@ import sys
 pygame.init()
 
 # Размеры экрана
-SCREEN_WIDTH = 1200
-SCREEN_HEIGHT = 1000
+SCREEN_WIDTH = 1300
+SCREEN_HEIGHT = 800
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Стрелялка")
 
@@ -321,15 +321,15 @@ while running:
 
         if game_state == GAME_STATE_MENU:
             start_button.handle_event(event)
-        elif game_state == GAME_STATE_GAME_OVER:
+        if game_state == GAME_STATE_GAME_OVER:
             restart_button.handle_event(event)
             play_again_button.handle_event(event)
-        elif game_state == GAME_STATE_PLAYING and event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1 and player is not None:
+        if game_state == GAME_STATE_PLAYING and event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1 and player is not None and not is_paused:
                 mouse_x, mouse_y = pygame.mouse.get_pos()
                 player.shoot(mouse_x, mouse_y)
         # Пауза при нажатии Esc
-        elif game_state == GAME_STATE_PLAYING and event.type == pygame.KEYDOWN:
+        if game_state == GAME_STATE_PLAYING and event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 is_paused = not is_paused
                 if is_paused:
