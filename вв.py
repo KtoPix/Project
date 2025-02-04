@@ -110,7 +110,7 @@ class Enemy(pygame.sprite.Sprite):
         super().__init__()
         self.enemy_type = enemy_type
         if enemy_type == 'fast':
-            self.image = pygame.transform.scale(enemy_image, (20, 20))  # Уменьшаем изображение для быстрого врага
+            self.image = pygame.transform.scale(enemy_image, (30, 30))  # Уменьшаем изображение для быстрого врага
             self.speed_multiplier = 1.8 + random.random() * 0.5  # немного быстрее обычных
             self.lives = 1  # 1 жизнь
         elif enemy_type == 'strong':
