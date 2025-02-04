@@ -25,7 +25,7 @@ GAME_STATE_PLAYING = 1  # Играем
 GAME_STATE_GAME_OVER = 2  # Конец игры
 
 # Загрузка изображения врага
-enemy_image = pygame.image.load("angry.png")  # Путь к вашему изображению
+enemy_image = pygame.image.load("angry.png") 
 
 
 # Класс кнопки
